@@ -103,37 +103,69 @@ def quote_representation(historical_figure, quote):
 
 3-7. Name Clean-Up:
 
-Task: Assign a name with leading and trailing whitespace and newlines to a variable. Print it with whitespace, and then use strip(), lstrip(), and rstrip() to clean it up.
+Task: Assign a name with leading and trailing whitespace and newlines to a variable. 
+Print it with whitespace, and then use strip(), lstrip(), and rstrip() to clean it up.
 
 Unit Test: Confirm that each method removes the correct whitespace.
+    def test_clean_name(self):
+        name = "\t\n Alex \n\t"
+        stripped, lstripped, rstripped = answers.clean_name(name)
+        self.assertEqual(stripped, "Alex")
+        self.assertEqual(lstripped, "Alex \n\t")
+        self.assertEqual(rstripped, "\t\n Alex")
+"""
+def clean_name(name):
+    stripped = name.strip()
+    lstripped = name.lstrip()
+    rstripped = name.rstrip()
+    
+    return stripped, lstripped, rstripped
+"""
 
 3-8. File Renaming:
 
-Task: Use the removeprefix() method on a filename variable (e.g., 'backup_python_notes.txt') to display the filename without a specific prefix like 'backup_'.
+Task: Use the removeprefix() method on a filename variable (e.g., 'backup_python_notes.txt') 
+to display the filename without a specific prefix like 'backup_'.
 
 Unit Test: Ensure the output is correctly stripped of the prefix.
+class TestRemovePrefix(unittest.TestCase):
+    def test_remove_prefix(self):
+        self.assertEqual(answers.remove_prefix(
+            "backup_python_notes.txt", "backup_"), "python_notes.txt")
+"""
+def remove_prefix(file_name, prefix):
+    return file_name.removeprefix(prefix)
+"""
 
 3-9. Lucky Number Seven:
 
 Task: Perform addition, subtraction, multiplication, and division to get the number 7. Print each operation.
 
 Unit Test: Verify that each operation correctly results in the number 7.
+    def test_lucky_seven_operations(self):
+        self.assertEqual(answers.lucky_seven_operations(), (7, 7, 7, 7))
+"""
+def lucky_seven_operations():
+    # x = 3 + 4
+    # y = 10 - 3
+    # z = 7 * 1
+    # a = 7 / 1
+    
+    return (3 + 4, 10 - 3, 7 * 1, 7 / 1)
+"""
 
 3-10. Birth Year:
 
 Task: Store your birth year in a variable and print a message like "I was born in 1990."
 
 Unit Test: Check if the message correctly displays the birth year.
+    def test_birth_year_message(self):
+        self.assertEqual(answers.birth_year_message(
+            1990), "I was born in 1990.")
+"""
 
-3-11. Code Annotation:
+def birth_year_message(year):
+    return (f'I was born in {year}.')
+"""
 
-Task: Add a comment explaining the purpose of one of your previous exercises. Include your name and the date.
-
-Unit Test: Review the comment to ensure it explains the program's purpose.
-
-3-12. Pythonic Principles:
-
-Task: Execute import antigravity in a Python session and briefly describe the comic it shows.
-
-Unit Test: Summarize the theme or main idea of the comic.
 """
